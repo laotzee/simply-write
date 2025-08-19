@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }} - My Website</title>
+</head>
+<body>
+    <h1>{{ message }}</h1>
+
+    <p>Welcome back, {{ user }}!</p>
+
+    <nav>
+        <a href="{% url 'home' %}">Home</a><br>
+        <a href="{% url 'writing' %}">Writing</a>
+    </nav>
+</body>
+</html>

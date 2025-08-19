@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }} - My Website</title>
+</head>
+<body>
+    <h1>{{ message }}</h1>
+
+    <p>Hello, {{ user }}! Start writing your content below:</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <!-- Add your writing form fields here -->
+        <textarea name="content" placeholder="Start writing..." rows="10" cols="50"></textarea><br>
+        <input type="submit" value="Save">
+    </form>
+
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'writing' %}">Writing</a>
+    </nav>
+</body>
+</html>
