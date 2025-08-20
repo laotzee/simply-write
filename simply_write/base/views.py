@@ -15,7 +15,6 @@ def home(request):
     }
     return render(request, 'base/home.html', context)
 
-# Writing view - Function Based View (requires login)
 def writing(request):
     """
     Writing page view - requires authentication
@@ -27,14 +26,11 @@ def writing(request):
     }
     return render(request, 'base/writing.html', context)
 
-# Alternative: Writing view without login requirement
-def writing_public(request):
+def generic_func(request):
     """
-    Public writing page view - no authentication required
+    Generic func for base
     """
     context = {
-        'title': 'Writing',
-        'message': 'Create and manage your content here',
-        'user': 'Laotze',
+
     }
-    return render(request, 'base/writing.html', context)
+    return render(request, 'base/default.html', context)
