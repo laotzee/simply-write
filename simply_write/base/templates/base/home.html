@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,5 +13,10 @@
         <a href="{% url 'home' %}">Home</a><br>
         <a href="{% url 'writing' %}">Writing</a>
     </nav>
+    <main>
+        <button id="fetchButton">Get a new prompt</button>
+        <p id="outputText">{{prompt}}</p>
+    </main>
+    <script src="{% static 'js/getPrompt.js' %}"></script>
 </body>
 </html>

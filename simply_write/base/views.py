@@ -2,16 +2,19 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
+from .models import Tag, Prompt
 
 # Home view - Function Based View
 def home(request):
     """
     Home page view
     """
+    prompt = Prompt.objects.order_by('?').first()
     context = {
         'title': 'Home',
         'message': 'Welcome to our website!',
         'user': 'Laotze',
+        'prompt': prompt,
     }
     return render(request, 'base/home.html', context)
 
