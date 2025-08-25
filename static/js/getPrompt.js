@@ -47,13 +47,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Save to browser session storage
                 sessionStorage.setItem('prompt_data', pTagText);
 
-                // Redirect to writing page
-                window.location.href = 'http://127.0.0.1:8000/writing/';
 
             } catch (error) {
                 console.error('Error in button click:', error);
                 // Fallback redirect
-                window.location.href = 'http://127.0.0.1:8000/writing/';
             }
         });
     }

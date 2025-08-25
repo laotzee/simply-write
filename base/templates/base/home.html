@@ -9,7 +9,9 @@
                 <h2 id="output-text">{{prompt}}</h2>
             </div>
             <div class="prompt-buttons">
-                <button class='primary-button' id="notebookButton">Go to notebook</button>
+                <a href="{% url 'writing' %}">
+                    <button class='primary-button' id="notebookButton">Go to notebook</button>
+                </a>
                 <button class='secondary-button' id="fetchButton">Get a new prompt</button>
             </div>
         </div>
