@@ -1,31 +1,35 @@
 const button = document.getElementById('fetchButton');
 const textElement = document.getElementById('outputText');
 
-button.addEventListener('click', async () => {
-    try {
-        const response = await fetch('http://127.0.0.1:8000/api/prompt');
+document.addEventListener('DOMContentLoaded', function() {
+    const button = document.getElementById('fetchButton');
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
+    if (button) {
+        button.addEventListener('click', async () => {
+            try {
+                const apiUrl = button.dataset.apiUrl;
+                const response = await fetch(apiUrl);
 
-        const data = await response.json();
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
 
-        // Get the h2 element
-        const outputText = document.getElementById('output-text');
+                const data = await response.json();
+                const outputText = document.getElementById('output-text');
 
-        // Method 1: Force animation restart by manipulating CSS
-        outputText.style.animation = 'none';
-        outputText.offsetHeight; // Trigger reflow
-        outputText.style.animation = null;
+                // Force animation restart
+                outputText.style.animation = 'none';
+                outputText.offsetHeight;
+                outputText.style.animation = null;
 
-        // Update content
-        outputText.textContent = data.body;
+                outputText.textContent = data.body;
 
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        const outputText = document.getElementById('outputText');
-        outputText.textContent = 'Error loading content';
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                const outputText = document.getElementById('output-text');
+                outputText.textContent = 'Error loading content';
+            }
+        });
     }
 });
 
