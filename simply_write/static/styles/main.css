@@ -1,0 +1,46 @@
+@import 'base/_variables.css';
+@import 'base/_reset.css';
+@import 'base/_typography.css';
+
+@import 'components/_header.css';
+@import 'components/_buttons.css';
+@import 'components/_prompt-area.css';
+@import 'components/_notepad.css';
+
+@import 'utils/_animations.css';
+
+/* Responsive styles */
+@media (max-width: 480px) {
+    .prompt-text {
+        padding: 20px;
+    }
+
+    .prompt-text h2 {
+        font-size: 1.2rem;
+    }
+
+    button {
+        padding: 15px;
+        font-size: 0.9rem;
+        min-width: 150px;
+    }
+
+    .prompt-buttons {
+        gap: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 768px) {
+    header.navbar {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        gap: 0.5rem;
+    }
+
+    .nav-links a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}

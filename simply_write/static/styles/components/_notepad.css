@@ -1,0 +1,34 @@
+#notepad-container {
+    width: 100%;
+    max-width: 800px;
+    margin: var(--spacing-md) auto;
+    padding: 0 var(--spacing-sm);
+}
+
+#notepad {
+    width: 100%;
+    min-height: calc(100vh - 100px);
+    padding: var(--spacing-md);
+    border: 1px solid var(--primary-color);
+    background-color: var(--base-color);
+    color: var(--text-color);
+    font-size: var(--font-size-lg);
+    font-family: --var(--font-primary);
+    line-height: 1.6;
+    border-radius: 4px;
+    transition: border-width 0.7s ease;
+}
+
+#notepad:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-color);
+    animation: subtleMove 0.2s ease-in-out;
+}
+
+#notepad:not(:focus) {
+    border-width: 1px; /* Shrink back to 1px when not focused */
+}
+
+#notepad::placeholder {
+    color: var(--secondary-color);
+}

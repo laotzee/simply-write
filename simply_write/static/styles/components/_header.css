@@ -1,0 +1,78 @@
+header {
+    margin: 0 0 var(--content-margin);
+}
+
+header.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--base-color);
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.nav-logo {
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+.nav-logo a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.nav-logo .logo-text {
+    font-family: var(--font-logo);
+    font-weight: var(--font-weight-bold); /* or whatever weight you want */
+    font-size: var(--font-size-xl); /* or your preferred size */
+    display: inline-block;
+    color: var(--highlight-color);
+}
+
+.nav-logo:hover a {
+    transform: scale(1.05);
+}
+
+.nav-logo:hover .logo-text {
+    animation: subtleMove 0.4s ease-in-out;
+}
+
+.nav-links a:hover {
+    transform: translateY(-2px);
+}
+
+.nav-logo:hover .logo-text {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Navigation links styling */
+.nav-links {
+    display: flex;
+    background-color: var(--base-color);
+    gap: 1rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--highlight-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.2s ease;
+    box-shadow: none !important;
+    font-size: var(--font-size-lg);
+}
+
+.nav-links a:hover {
+    background-color: var(--secondary-color);
+    color: var(--base-color);
+    box-shadow: none !important;
+}

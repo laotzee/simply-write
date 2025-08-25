@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--base-color);
+    max-width: 800px;
+    margin: 0 auto;
+    //*
+    height: 100vh;
+    overflow: hidden;
+    *//
+}
+
+p, h1, h2, h3, h4 {
+    color: var(--highlight-color);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-secondary);
+}

@@ -3,23 +3,29 @@ const textElement = document.getElementById('outputText');
 
 button.addEventListener('click', async () => {
     try {
-        // Make the API request
         const response = await fetch('http://127.0.0.1:8000/api/prompt');
 
-        // Check if the response is successful
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        // Get the text from the response
         const data = await response.json();
 
-        // Update the paragraph content
-        textElement.textContent = data.body;
+        // Get the h2 element
+        const outputText = document.getElementById('output-text');
+
+        // Method 1: Force animation restart by manipulating CSS
+        outputText.style.animation = 'none';
+        outputText.offsetHeight; // Trigger reflow
+        outputText.style.animation = null;
+
+        // Update content
+        outputText.textContent = data.body;
+
     } catch (error) {
-        // Handle any errors
         console.error('Error fetching data:', error);
-        textElement.textContent = 'Error loading content';
+        const outputText = document.getElementById('outputText');
+        outputText.textContent = 'Error loading content';
     }
 });
 
@@ -30,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         notebookButton.addEventListener('click', function() {
             try {
                 // Get text content
-                const pTagElement = document.getElementById('outputText');
+                const pTagElement = document.getElementById('output-text');
                 if (!pTagElement) {
                     console.error('Element with id "outputText" not found');
                     return;
@@ -59,7 +65,7 @@ const promptData = sessionStorage.getItem('prompt_data');
 
 if (promptData) {
     // Populate your textarea or content area
-    document.getElementById('outputText').innerHTML = promptData;
+    document.getElementById('output-text').innerHTML = promptData;
     // Clear the data after use (optional)
     sessionStorage.removeItem('prompt_data');
     }
