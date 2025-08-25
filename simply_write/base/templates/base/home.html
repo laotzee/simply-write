@@ -1,23 +1,20 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ title }} - My Website</title>
-</head>
-<body>
-    <nav>
-        <a href="{% url 'home' %}">Home</a>
-        <a href="{% url 'writing' %}">Writing</a>
-    </nav>
-    <h1>{{ message }}</h1>
 
-    <p>Welcome back, {{ user }}!</p>
+{% block content%}
+<main>
+    <div class="content-block">
+        <div class="prompt-area">
+            <div class="prompt-text">
+                <h2 id="outputText">{{prompt}}</h2>
+            </div>
+            <div class="prompt-buttons">
+                <button class='primary_button' id="notebookButton">Go to notebook</button>
+                <button class='secondary_button' id="fetchButton">Get a new prompt</button>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="{% static 'js/getPrompt.js' %}"></script>
 
-    <main>
-        <p id="outputText">{{prompt}}</p>
-        <button id="fetchButton">Get a new prompt</button>
-        <button id="notebookButton">Go to notebook</button>
-    </main>
-    <script src="{% static 'js/getPrompt.js' %}"></script>
-</body>
-</html>
+{% endblock %}
