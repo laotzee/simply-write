@@ -8,6 +8,14 @@ class Tag(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     click_count = models.PositiveIntegerField(default=0)
 
+    def __str__(self) -> str:
+        """Returns the name of the tag as string representation"""
+        return self.name
+
+    def __repr__(self) -> str:
+        """Returns the name of the tag as string representation"""
+        return f"<Tag id={self.pk!r} name={self.name!r}>"
+
     def count(self) -> int:
         """Returns the amount of clicks the tag has received"""
         return self.click_count
@@ -22,10 +30,6 @@ class Tag(models.Model):
         """Returns a QuerySet object with Prompt instances associated with the tag"""
         return self.prompts.all()
 
-    def __repr__(self) -> str:
-        """Returns the name of the tag as string representation"""
-        return self.name
-
 class Prompt(models.Model):
     """Models writing prompts properties"""
     body = models.CharField(max_length=512)
@@ -33,9 +37,13 @@ class Prompt(models.Model):
     likes = models.ManyToManyField(User, related_name='liked_prompts')
     created = models.DateTimeField(auto_now_add=True)
     
-    def __repr__(self) -> str:
+    def __str__(self) -> str:
         """Returns the body of the prompt as string representation"""
         return self.body
+
+    def __repr__(self) -> str:
+        """Returns the body of the prompt as string representation"""
+        return f"<Prompt id={self.pk!r} body={self.body!r}>"
 
     def like_list(self) -> QuerySet:
         """Returns a QuerySet of User instances who liked the prompt"""

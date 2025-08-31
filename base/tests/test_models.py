@@ -15,14 +15,23 @@ class PromptTests(ModelTestCase):
         #!!! Users not implemented yet
         pass
 
-    def test_prompt_representation(self):
-        """Test the string representation of a Prompt instance equals its body """
+    def test_prompt_str(self):
+        """Test the __str__ of a Prompt instance equals its body """
         # Given an initial state
         prompt_body = self.prompt1.body
-        prompt_repr = repr(self.prompt1)
+        prompt_str = str(self.prompt1)
 
         # Verify both variables have the same value
-        self.assertEqual(prompt_body, prompt_repr)
+        self.assertEqual(prompt_body, prompt_str)
+
+    def test_prompt_repr(self):
+        """Test the __repr__ of a Prompt"""
+        # Given an initial state
+        prompt = self.prompt1
+        prompt_repr = f"<Prompt id={prompt.id} body='{prompt.body}'>"
+
+        # Verify the repr complies
+        self.assertEqual(repr(prompt), prompt_repr)
 
     def test_tags_return_value(self):
         """Test .tags return value is a QuerySet"""
@@ -121,11 +130,20 @@ class TagTests(ModelTestCase):
         self.assertQuerySetEqual(self.tag1.get_prompts(), [self.prompt1], ordered=False)
         self.assertQuerySetEqual(self.tag2.get_prompts(), [self.prompt1], ordered=False)
 
-    def test_tag_representation(self):
-        """Test tag representation equals its name"""
+    def test_tag_str(self):
+        """Test the __str__ of a Tag instance equals its name """
         # Given an initial state
         tag_name = self.tag1.name
-        tag_repr = repr(self.tag1)
+        tag_str = str(self.tag1)
 
         # Verify both variables have the same value
-        self.assertEqual(tag_repr, tag_name)
+        self.assertEqual(tag_name, tag_str)
+
+    def test_tag_repr(self):
+        """Test the __repr__ of a Tag"""
+        # Given an initial state
+        tag = self.tag1
+        tag_repr = f"<Tag id={tag.id} name='{tag.name}'>"
+
+        # Verify the repr complies
+        self.assertEqual(repr(tag), tag_repr)
