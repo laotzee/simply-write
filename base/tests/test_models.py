@@ -42,7 +42,7 @@ class PromptTests(ModelTestCase):
     def test_prompt_returns_correct_tags(self):
         """Test .tags returns all associated tags to Prompt"""
         # Given an initial state
-        self.assertQuerySetEqual(self.prompt1, [])
+        self.assertQuerySetEqual(self.prompt1.tags, [])
 
         # When Tags are added the prompt
         self.prompt1.tag.add(self.tag1, self.tag2)
