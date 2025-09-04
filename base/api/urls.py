@@ -2,7 +2,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('prompt/', views.get_prompt, name='single_prompt'),
+    path('v1/', views.get_prompt, name=''),
+    path('v1/prompt/', views.get_prompt, name='prompt'),
 ]
 
 
