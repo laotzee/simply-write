@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
 
-                const data = await response.json();
+                const json_content = await response.json();
                 const outputText = document.getElementById('output-text');
 
                 // Force animation restart
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 outputText.offsetHeight;
                 outputText.style.animation = null;
 
-                outputText.textContent = data.body;
+                outputText.textContent = json_content.data.body;
 
             } catch (error) {
                 console.error('Error fetching data:', error);
