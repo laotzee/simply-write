@@ -12,7 +12,7 @@ class TestSinglePrompt(TestCase):
         url = reverse('prompt')
 
         # Verify it is equal to the path defined at '/'
-        self.assertEqual(url,'/prompt/')
+        self.assertEqual(url,'/api/v1/prompt/')
 
     def test_url_resolves_to_correct_view(self):
         """Test home url resolves to the correct view"""
