@@ -35,9 +35,6 @@ header.navbar {
     color: var(--highlight-color);
 }
 
-.nav-logo:hover a {
-    transform: scale(1.05);
-}
 
 .nav-logo:hover .logo-text {
     animation: subtleMove 0.4s ease-in-out;
@@ -45,6 +42,7 @@ header.navbar {
 
 .nav-links a:hover {
     transform: translateY(-2px);
+    transform: scale(1.05);
 }
 
 .nav-logo:hover .logo-text {
@@ -71,8 +69,10 @@ header.navbar {
     font-size: var(--font-size-lg);
 }
 
+.nav-logo:hover a {
+    transform: scale(1.05);
+}
+
 .nav-links a:hover {
-    background-color: var(--secondary-color);
-    color: var(--base-color);
-    box-shadow: none !important;
+    background-color: var(--primary-color);
 }
